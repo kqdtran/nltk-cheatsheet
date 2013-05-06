@@ -53,6 +53,54 @@ __bigrams__ = a list of word pairs
 ```
 biagrams(['more', 'is', 'said', 'than', 'done'])
 ```
+Essentially, collocations are frequent bigrams, except that we want to pay more attention to the cases that involve rare words.
+```
+text4.collocations()
+```
+
+__AUTOMATIC NATURAL LANGUAGE UNDERSTANDING__
+Getting a computer to answer a "human" question automatically involves a lot of NLP:
+- information extration
+- inference
+- summarization
+- scalable and robust
+
+__Word sense disambiguation__ = work out which sense of a word was intended in a given context
+e.g. 
+- serve: help with food or drink; hold office; put ball into play
+- dish: course of a meal, communications device
+
+In the sentence "he served the dish", you can detect that serve and dish are being used with their food meanings.
+
+A deeper kind of language understanding is needed to work out "who did what to whom" -- identifying subjects and objects of sentences.
+e.g.
+
+- The thieves stole the paintings. They were subsequently sold.
+- The theives stole the paintings. They were subsequently caught.
+- The thieves stole the paintings. They were subsequently found.
+
+Figuring out "who did what to whom" involves finding the __antecendent__ of the pronoun "they" (thieves or paintings?)
+NLP uses:
+
+- __Anaphora resolution__ = identifying whar a pronoun or noun phrase refers to
+- __Sematic role labeling__ = identifying how a noun phrase relates to the verb (agent, patient, instrument, etc.)
+
+__Machience translation__ = high-quality, idomatic translation between two languages
+NLTK's MT = babelizer
+
+```
+>>> babelize.shell()
+>>> How long are final exams?
+>>> german
+>>> run
+```
+
+How this works: given a document in English and German and a bilingual dictionary, we can automatically pair up the sentences in a method called __text alignment__. Once we have a million+ sentences, we can detect corresponding words and phrases and build a model that can be used to translate new text.
+
+Spoken Dialogue Systems:
+__Turning test__ = can a dialogue system, repsonding to a user's text input, perform so naturally that we cannot distinguish it from a human-generated response?
+
+
 
 Chapter 2
 ---
