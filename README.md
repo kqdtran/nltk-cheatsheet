@@ -110,6 +110,7 @@ __Corpa__ = large amounts of text / linguistic data
 NLTK contains many corpa
 
 - Project Gutenberg
+
 ```
 import nltk
 nltk.corpus.gutenberg.fileids()
@@ -117,17 +118,22 @@ emma = nltk.Text(nltk.corpus.gutenberg.wrds('austin-emma.txt'))
 emma.concordance("suprise")
 ```
 - Web text
+
 ```
 from nltk.corpus import webtext
 ```
+
 - Chatroom conversations 
+
 ```
 from nltk.corpus import nps_chat
 ```
+
 - Brown corpus -- first million-word electronic corpus in English
 -- Catagoried by genre (news, editorial, etc.)
 -- Resource for studying systematic differences between genres -- a kind of linguistics called __stylistics__
 -- e.g. Compare genere's use of modal verbs
+
 ```
 from ntk.corpus import brown
 cfd = nltk.ConditionalFreqDist(
@@ -138,15 +144,19 @@ genre = ['news', 'religion', 'hobbies']
 modals = ['can', 'could', 'may', 'might', 'must', 'will']
 cfd.tabulate(conditions=genres, samples= modals)
 ```
+
 -- The most frequent modal in news is "will" and the most frequent modal in romance is "could".
 - Reuter's corpus -- 11,000 news documents. Classified in 90 topics. Groups into two sets: "training" and "test" (used to auto detect the topic of a document)
 - Inagural address corpus
 - Corpuses in different languages
+
 ```
 from nltk.cprpus inport udhr
 langauges = ['German_Deutsch']
 ```
+
 - Loading your own corpus
+
 ```
 from nltk.corpus import PlaintextCorpusReader
 corpus_root = '/usr/share/dict'
@@ -157,6 +167,7 @@ wordlists.fileids()
 __Conditional frequency distributions__ = collection of frequency distributions, each for a different condition (e.g. a catagory)
 
 Generating random text with bigrams:
+
 ```
 def generate_model(cfdist, word, num=15):
 	for i in range(num):
@@ -178,7 +189,7 @@ __Lexical entry__ = consists of a __headword__ (aka a __lemma__) and additional 
 
 __Homonyms__ = two distinct words having the same spelling
 
-__stopwords__ = high-frequency, eglish plumbing words (the, is, to)
+__stopwords__ = high-frequency, eglish plumbing words (the, is, to)s
 ```
 from nltk.corpus import stopwords
 stopwords.words('english')
