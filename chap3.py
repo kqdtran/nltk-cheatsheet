@@ -29,9 +29,6 @@ def soundex(s):
 	original = s
 	first = s[0]
 	s = s[1:]
-	found = re.findall(r'[aeiouyhw]', s)
-	for v in found:
-		s = s.replace(v, '')
 	found = re.findall(r'[bfpv]', s)
 	for v in found:
 		s = s.replace(v, '1')
@@ -50,15 +47,19 @@ def soundex(s):
 	found = re.findall(r'[r]', s)
 	for v in found:
 		s = s.replace(v, '6')
-	if re.findall(r'([0-9][aeiou])\1+', s):
-		pass
-	elif re.findall(r'[0-9]{2,}', s):
-		s = re.sub(r'([0-9])\1+', r'\1', s)
+	found = re.findall(r'([0-9]+)\1', s)
+	for v in found:
+		s = re.sub(r'([0-9]+)\1', r'\1', s)
+	while re.findall(r'([0-9])[wh]\1', s):
+		s = re.sub(r'([0-9])[wh]\1', r'\1', s)
+	found = re.findall(r'[aeiouyhw]', s)
+	for v in found:
+		s = s.replace(v, '')
 	while len(s) < 3:
 		s = s + '0'
 	s = first+s
-	return first + s
-print soundex('Rubin') #!
+	return s
+print soundex('Tymczak')
 
 """P. 37: Remove HTML tags from at html file and normalize whitespace"""
 def remove_tags(site):
@@ -71,6 +72,8 @@ def remove_tags(site):
 		if t.find(r'^<head'+r'>$') and t.find(r'^</head'+r'>$'):
 			tokens.pop(ct)
 		ct += 1
+	# for t in tokens:
+	# 	print t, len(t)
 	text = nltk.Text(tokens)
 	return text
 
