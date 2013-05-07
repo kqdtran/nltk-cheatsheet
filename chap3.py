@@ -21,7 +21,7 @@ def hacker(s):
 		s = s.replace('.', '5w33t!')
 	return s
 
-print hacker('hackereate.')
+print hacker('hacker')
 
 """P. 39: Soundex algorithm """
 
