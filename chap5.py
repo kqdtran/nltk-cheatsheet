@@ -12,9 +12,9 @@ def sort_tags():
 			tags.append(tag)
 	return sorted(set(tags))
 
-# print sort_tags()
+print sort_tags()
 
-""" P. 15: Write programs to process the Brown Corpus and find answers to the following questions:
+""" P. 15: Write programs to process the Brown Corpus and find answers to the following 4 questions:
 	a. Which nouns are more common in their plural form
 	b. Which word has the greatest number of distinct tags?
 	c. List tags in decreasing order of frequency?
@@ -45,7 +45,7 @@ def often_plural():
 				normally_plural.append(word)
 	return normally_plural
 
-# print often_plural()
+print often_plural()
 
 def most_popular_tags():
 	brown_news_tagged = brown.tagged_words()
@@ -53,7 +53,7 @@ def most_popular_tags():
 	sorted_pos = sorted(tag_fd.iteritems(), key=operator.itemgetter(1), reverse=True)
 	return sorted_pos
 
-# print most_popular_tags()
+print most_popular_tags()
 
 def nouns_after():
 	brown_news_tagged = brown.tagged_words(simplify_tags=True)
@@ -71,7 +71,7 @@ def nouns_after():
 		ct += 1
 	return sorted(previous.iteritems(), key=operator.itemgetter(1), reverse=True)
 
-# print nouns_after()
+print nouns_after()
 
 def distinct_tags():
 	brown_news_tagged = brown.tagged_words(simplify_tags=True)
