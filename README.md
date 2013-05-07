@@ -316,9 +316,71 @@ re.split(r'[ \t\n]+', raw)
 
 Chapter 4
 ---
+Python basics -- skipped
 
-Chapter 5
+Chapter 5: Catagorizing and Tagging Words
 ---
+__POS Tagger__ = processes a sequence of words and attaches a part of speech to each word
+```
+nltk.pos_tag(text)
+```
+- CC = coordinating conjunction
+- RB = adverbs
+- IN = preposition
+- NN = noun
+- NNP = noun proper
+- JJ = adjective
+- VBP = present-tense verb
+
+Taggers help with generation of similar words, since you want to make sure they are the same part of speech.
+- Tagged tokens often represented by tuples ('dog', 'NN')
+- Can find out what type of works are most common in different catagories of text (e.g. news)
+
+Nouns = used after a determiner or as the subject of a verb
+- the __woman__ who I saw yesterday --> determiner
+- the __woman__ sat down --> subject of a verb
+
+Verbs = express a relation involving the referents of one or more noun phrases
+- Rome __fell__ --> Simple
+- Dot com stocks suddently __fell__ like a stone --> with modifiers and adjuncts
+
+Adjectives = describe nouns and used a modifiers (e.g. the large pizza) or predicates (e.g. the pizza is large)
+
+Adverbs = modify verbs to specify the time, manner, place, or direction of the event described by the verb (e.g. the stocks fell __quickly__). They can also modify adjectives (e.g. Mary's teachers was __really__ nice.)
+
+Articles = determiners (the, a)
+
+Modals = (should, may)
+
+Personal pronouns = (she, they)
+
+Searching for 3-word phrases using POS tagging
+```
+from nltk.corpus import brown
+def process(sentence):
+	for (w1, t1), (w2, t2), (w3, t3) in nltk.trigrams(sentence):
+		if (t1.startswith('V') and t2 == 'TO' and t3.startswith('V')):
+			print w1, w2, w3
+
+for tagged_sent in brown.tagged_sents():
+	process(tagged_sent)
+```
+
+To create a POS-tagger:
+- Default tag everything w/ most common POS (NN)
+- Use a regular expression tagger
+- Use a lookup tagger -- aka reference against a previously tagged piece of text (useful for the top 100 common words)
+- Unigram tagging -- a trained lookup tagger (uses two data sets, training and test sets)
+
+How to detemrine the catagory of a word (in general)?
+- Morphological clues (suffixes, prefixes)
+- Synatic clues = the typical contexts in which words occur
+- Sematic clues = the meaning of the word
+
+__open class__ = a POS that new words are typically added to (e.g. muggles, n00bs, added to noun class)
+__closed class__ = a POS that new words are not added to often (e.g. above, along, below, between have no changed)
+
+
 
 Chapter 6
 ---
@@ -336,10 +398,4 @@ Chapter 10
 ---
 
 Chapter 11
----
-
-Chapter 12
----
-
-Chapter 13
 ---
