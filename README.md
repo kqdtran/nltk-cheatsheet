@@ -378,8 +378,8 @@ How to detemrine the catagory of a word (in general)?
 - Sematic clues = the meaning of the word
 
 __open class__ = a POS that new words are typically added to (e.g. muggles, n00bs, added to noun class)
-__closed class__ = a POS that new words are not added to often (e.g. above, along, below, between have no changed)
 
+__closed class__ = a POS that new words are not added to often (e.g. above, along, below, between have no changed)
 
 
 Chapter 6
