@@ -73,7 +73,7 @@ def nouns_after():
 
 print nouns_after()
 
-def distinct_tags():
+def most_tags():
 	brown_news_tagged = brown.tagged_words(simplify_tags=True)
 	distinct = {}
 	for (word, tag) in brown_news_tagged:
@@ -84,6 +84,6 @@ def distinct_tags():
 				distinct[word].append(tag)
 	for word in distinct:
 		distinct[word] = len(distinct[word])
-	return sorted(distinct.iteritems(), key=operator.itemgetter(1), reverse=True)
+	return sorted(distinct.iteritems(), key=operator.itemgetter(1), reverse=True)[0]
 
-print distinct_tags()[0]
+print most_tags()
