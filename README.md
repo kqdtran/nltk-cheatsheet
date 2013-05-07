@@ -382,20 +382,61 @@ __open class__ = a POS that new words are typically added to (e.g. muggles, n00b
 __closed class__ = a POS that new words are not added to often (e.g. above, along, below, between have no changed)
 
 
-Chapter 6
+Chapter 6: Learning to Classify Text
 ---
+__Classsifiers:__ choosing the correct __class label__ for a given input
+- eg. email spam filters
+- topic of a news article
+- classifying "bank" as a noun or verb
 
-Chapter 7
----
+__Supervised__ = when a classifier is built based on a trianing corpa contianing the correct label for each input
 
-Chapter 8
----
+Steps in creating a classifier:
+- Deciding what features are relevant and how to encode those features (this is a lost of the work in a good classifier)
+- Examine the likelihood ratios = the listings in the training set that meet the features and are correct
 
-Chapter 9
----
+Classifiers used for document classificiation (e.g. news, romance, horror)
 
-Chapter 10
----
+__Joint classifier model__ = examines a bunch of related inputs and makes a label
+__Sequence classfier model__ = first find the most likely class label for the first input, then use this to find the best label for the second input and so on.
+- Shortcoming: committed to all decisions, and one decision influences the next
 
-Chapter 11
+__Hidden Markov Analysis__ = assigns scores to all the possible sequences and then chooses which sequence has the highest score (employ probability distribution, which a sequence classifier does not.)
+
+Ways to measure classifiers:
+- Accuracy
+- Precision = how many of the items were identified as relevant
+- Recall = how many of the relevent items we identified
+
+__Confusion Matrix__ = table where each cell [i,j] indicates how often a label j was predicated when the correct label was i
+
+__Cross Validation__ = perform multiple evaluations of different test tests and combine the scores
+- To do this, subdivide the original corpus into N subsets called __folds__
+- For each fold, we train the model using all but that fold, and then test on this fold
+
+__Decision Trees__ = simple flowchart that selects labels for input values
+- decision nodes = check feature value
+- leaf nodes - assign labels
+- root vaue = flowcharts initial decision
+- decision stump = tree with a single node that decides to to classify inputs based on a single feature
+
+__Information gain__ = how much more organizaed the input vaues become when we divide them up using a given feature (by calculating the entropy of their labels. This will be high if the input values have slightly varied labels and low if many inputs have the same label)
+
+__Naive Bayes__: every features gets a say in determining whihch label should be assigned to a given input. 
+- Each classifier starts by looking at the __prior probability__ of the label (aka the frequency of the label in the training set)
+- Contribution from each feature combined with prior probability to acheive a likelihood estimate
+
+
+Chapter 7 - Extracting Information from Text
 ---
+__Structured data__ = regular and predictable organization of entitites and relationships
+
+__Named entitity recognition__ = search for mentions of entities (locations, businesses, etc.)
+
+__Relation recognition__ = search for relationships between entitites in the text
+
+__Chunking__ = technique used for entity recognition. Smaller chunks are tagged with POS, while larger chunks are used to identify multiple-word entitities (e.g. San Francisco). These use tag patterns to refactor chunks.
+- __Tag patterns__ = a sequence of pos-tags eg <NN><VB><NN> that help identify a chunk
+- __Noun phrase chunking__ = search for a sequence of proper nouns and chunk them together
+
+__Chink__ = a sequence of tokens that we do not want to include in a chunk
