@@ -1,5 +1,6 @@
 Notes From The NLTK Book
 ========
+Juliana Nazaré - May 2013 - Artificial Intelligence Class
 
 Chapter 1
 ---
