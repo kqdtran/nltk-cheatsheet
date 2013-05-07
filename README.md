@@ -13,11 +13,11 @@ text1.similar("monstrous")
 ```
 __common contexts__ = examines just the contexts shared by 2+ words
 ```
-text2.concortance(["montrous", "very"])
+text2.concordance(["monstrous", "very"])
 ```
 __dispersion plot__ = positional information of a word within text
 
-- each stripe on plot = an occurance of the word
+- each stripe on plot = an occurrence of the word
 
 __generate__ = generates random text in the style of the text defined.
 ```
@@ -35,10 +35,10 @@ __lexical diversity__ = how diverse a body of text is (different words used)
 
 __HOW DO WE IDENTIFY THE WORDS OF A TEXT THAT ARE MOST INFORMATIVE ABOUT  TOPIC?__
 
-- Neither the very infreqeunt or very frequent words (common English plumbing) help.
+- Neither the very infrequent or very frequent words (common English plumbing) help.
 - You want the words in the middle (they occur more than x times and less than y times e.g. 7)
 
-__frequency distribiution__ = the frequency of each vocabulry item in the text
+__frequency distribution__ = the frequency of each vocabulry item in the text
 
 ```
 fdist = FreqDist(text1)
@@ -60,7 +60,7 @@ text4.collocations()
 
 __AUTOMATIC NATURAL LANGUAGE UNDERSTANDING__
 Getting a computer to answer a "human" question automatically involves a lot of NLP:
-- information extration
+- information extraction
 - inference
 - summarization
 - scalable and robust
@@ -79,13 +79,13 @@ e.g.
 - The theives stole the paintings. They were subsequently caught.
 - The thieves stole the paintings. They were subsequently found.
 
-Figuring out "who did what to whom" involves finding the __antecendent__ of the pronoun "they" (thieves or paintings?)
+Figuring out "who did what to whom" involves finding the __antecedent__ of the pronoun "they" (thieves or paintings?)
 NLP uses:
 
-- __Anaphora resolution__ = identifying whar a pronoun or noun phrase refers to
-- __Sematic role labeling__ = identifying how a noun phrase relates to the verb (agent, patient, instrument, etc.)
+- __Anaphora resolution__ = identifying what a pronoun or noun phrase refers to
+- __Semantic role labeling__ = identifying how a noun phrase relates to the verb (agent, patient, instrument, etc.)
 
-__Machience translation__ = high-quality, idomatic translation between two languages.
+__Machine translation__ = high-quality, idiomatic translation between two languages.
 NLTK's MT = babelizer
 
 ```
@@ -97,9 +97,9 @@ NLTK's MT = babelizer
 
 How this works: given a document in English and German and a bilingual dictionary, we can automatically pair up the sentences in a method called __text alignment__. Once we have a million+ sentences, we can detect corresponding words and phrases and build a model that can be used to translate new text.
 
-Spoken Dialogue Systems:
+Spoken Dialog Systems:
 
-__Turning test__ = can a dialogue system, repsonding to a user's text input, perform so naturally that we cannot distinguish it from a human-generated response?
+__Turning test__ = can a dialog system, responding to a user's text input, perform so naturally that we cannot distinguish it from a human-generated response?
 
 
 Chapter 2
@@ -130,9 +130,9 @@ from nltk.corpus import nps_chat
 ```
 
 - Brown corpus -- first million-word electronic corpus in English
--- Catagoried by genre (news, editorial, etc.)
+-- Categorized by genre (news, editorial, etc.)
 -- Resource for studying systematic differences between genres -- a kind of linguistics called __stylistics__
--- e.g. Compare genere's use of modal verbs
+-- e.g. Compare genre's use of modal verbs
 
 ```
 from ntk.corpus import brown
@@ -147,7 +147,7 @@ cfd.tabulate(conditions=genres, samples= modals)
 
 -- The most frequent modal in news is "will" and the most frequent modal in romance is "could".
 - Reuter's corpus -- 11,000 news documents. Classified in 90 topics. Groups into two sets: "training" and "test" (used to auto detect the topic of a document)
-- Inagural address corpus
+- Inaugural address corpus
 - Corpuses in different languages
 
 ```
@@ -164,7 +164,7 @@ wordlists = PlaintextCorpusReader(corpus_root, '.*')
 wordlists.fileids()
 ```
 
-__Conditional frequency distributions__ = collection of frequency distributions, each for a different condition (e.g. a catagory)
+__Conditional frequency distributions__ = collection of frequency distributions, each for a different condition (e.g. a category)
 
 Generating random text with bigrams:
 
@@ -185,11 +185,11 @@ Lexical Resources
 
 __Lexicon__ = a collection of words and/or phrases along with associated info, such as part-of-speech and sense definitions
 
-__Lexical entry__ = consists of a __headword__ (aka a __lemma__) and additional ifo such as (part of speech and sense).
+__Lexical entry__ = consists of a __headword__ (aka a __lemma__) and additional info such as (part of speech and sense).
 
 __Homonyms__ = two distinct words having the same spelling
 
-__stopwords__ = high-frequency, eglish plumbing words (the, is, to)s
+__stopwords__ = high-frequency, English plumbing words (the, is, to)s
 ```
 from nltk.corpus import stopwords
 stopwords.words('english')
@@ -206,7 +206,7 @@ syllable = ['N', 'IHO', 'K', 'S']
 [word for word, pron in entries if pron[-4:] == syllable]
 ```
 
-__WordNet__ = sematically oriented English dictionary (righer than a regular thesaurus)
+__WordNet__ = semantically oriented English dictionary (righer than a regular thesaurus)
 ```
 from nltk.corpus import wordnet as wn
 wn.synsets('motorcar').lemma_names
@@ -278,7 +278,7 @@ __textonyms__ = two or more words that are entered with the same sequence of key
 [w for w in wordlist if re.search('^[ghi][mno][jlk][def]$', w)]
 ```
 Operators:
-- __+__ = one or more instances of the precending item (closure)
+- __+__ = one or more instances of the preceding item (closure)
 - __[]__ = indicates a set
 - __[-]__ = indicates a range
 - __*__ = zero or more instances of the preceding item (closure)
@@ -318,7 +318,7 @@ Chapter 4
 ---
 Python basics -- skipped
 
-Chapter 5: Catagorizing and Tagging Words
+Chapter 5: Categorizing and Tagging Words
 ---
 __POS Tagger__ = processes a sequence of words and attaches a part of speech to each word
 ```
@@ -342,7 +342,7 @@ Nouns = used after a determiner or as the subject of a verb
 
 Verbs = express a relation involving the referents of one or more noun phrases
 - Rome __fell__ --> Simple
-- Dot com stocks suddently __fell__ like a stone --> with modifiers and adjuncts
+- Dot com stocks suddenly __fell__ like a stone --> with modifiers and adjuncts
 
 Adjectives = describe nouns and used a modifiers (e.g. the large pizza) or predicates (e.g. the pizza is large)
 
@@ -372,7 +372,7 @@ To create a POS-tagger:
 - Use a lookup tagger -- aka reference against a previously tagged piece of text (useful for the top 100 common words)
 - Unigram tagging -- a trained lookup tagger (uses two data sets, training and test sets)
 
-How to detemrine the catagory of a word (in general)?
+How to determine the category of a word (in general)?
 - Morphological clues (suffixes, prefixes)
 - Synatic clues = the typical contexts in which words occur
 - Sematic clues = the meaning of the word
@@ -384,21 +384,21 @@ __closed class__ = a POS that new words are not added to often (e.g. above, alon
 
 Chapter 6: Learning to Classify Text
 ---
-__Classsifiers:__ choosing the correct __class label__ for a given input
+__Classifiers:__ choosing the correct __class label__ for a given input
 - eg. email spam filters
 - topic of a news article
 - classifying "bank" as a noun or verb
 
-__Supervised__ = when a classifier is built based on a trianing corpa contianing the correct label for each input
+__Supervised__ = when a classifier is built based on a training corpa containing the correct label for each input
 
 Steps in creating a classifier:
 - Deciding what features are relevant and how to encode those features (this is a lost of the work in a good classifier)
 - Examine the likelihood ratios = the listings in the training set that meet the features and are correct
 
-Classifiers used for document classificiation (e.g. news, romance, horror)
+Classifiers used for document classification (e.g. news, romance, horror)
 
 __Joint classifier model__ = examines a bunch of related inputs and makes a label
-__Sequence classfier model__ = first find the most likely class label for the first input, then use this to find the best label for the second input and so on.
+__Sequence classier model__ = first find the most likely class label for the first input, then use this to find the best label for the second input and so on.
 - Shortcoming: committed to all decisions, and one decision influences the next
 
 __Hidden Markov Analysis__ = assigns scores to all the possible sequences and then chooses which sequence has the highest score (employ probability distribution, which a sequence classifier does not.)
@@ -406,7 +406,7 @@ __Hidden Markov Analysis__ = assigns scores to all the possible sequences and th
 Ways to measure classifiers:
 - Accuracy
 - Precision = how many of the items were identified as relevant
-- Recall = how many of the relevent items we identified
+- Recall = how many of the relevant items we identified
 
 __Confusion Matrix__ = table where each cell [i,j] indicates how often a label j was predicated when the correct label was i
 
@@ -417,25 +417,25 @@ __Cross Validation__ = perform multiple evaluations of different test tests and 
 __Decision Trees__ = simple flowchart that selects labels for input values
 - decision nodes = check feature value
 - leaf nodes - assign labels
-- root vaue = flowcharts initial decision
+- root value = flowcharts initial decision
 - decision stump = tree with a single node that decides to to classify inputs based on a single feature
 
-__Information gain__ = how much more organizaed the input vaues become when we divide them up using a given feature (by calculating the entropy of their labels. This will be high if the input values have slightly varied labels and low if many inputs have the same label)
+__Information gain__ = how much more organized the input values become when we divide them up using a given feature (by calculating the entropy of their labels. This will be high if the input values have slightly varied labels and low if many inputs have the same label)
 
-__Naive Bayes__: every features gets a say in determining whihch label should be assigned to a given input. 
+__Naive Bayes__: every features gets a say in determining which label should be assigned to a given input. 
 - Each classifier starts by looking at the __prior probability__ of the label (aka the frequency of the label in the training set)
-- Contribution from each feature combined with prior probability to acheive a likelihood estimate
+- Contribution from each feature combined with prior probability to achieve a likelihood estimate
 
 
 Chapter 7 - Extracting Information from Text
 ---
-__Structured data__ = regular and predictable organization of entitites and relationships
+__Structured data__ = regular and predictable organization of entities and relationships
 
-__Named entitity recognition__ = search for mentions of entities (locations, businesses, etc.)
+__Named entity recognition__ = search for mentions of entities (locations, businesses, etc.)
 
-__Relation recognition__ = search for relationships between entitites in the text
+__Relation recognition__ = search for relationships between entities in the text
 
-__Chunking__ = technique used for entity recognition. Smaller chunks are tagged with POS, while larger chunks are used to identify multiple-word entitities (e.g. San Francisco). These use tag patterns to refactor chunks.
+__Chunking__ = technique used for entity recognition. Smaller chunks are tagged with POS, while larger chunks are used to identify multiple-word entities (e.g. San Francisco). These use tag patterns to re-factor chunks.
 - __Tag patterns__ = a sequence of pos-tags eg <NN><VB><NN> that help identify a chunk
 - __Noun phrase chunking__ = search for a sequence of proper nouns and chunk them together
 
