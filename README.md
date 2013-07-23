@@ -213,8 +213,8 @@ emma.concordance("suprise")
 
 To extract part of the documents:
 
-*Raw text*, including everything (space, punctuation, etc.): `raw()`, as in `gutenberg.raw(fileid)`
-*All words*, space delimited: `words()`, as in `gutenberg.words(fileid)`
+*Raw text*, including everything (space, punctuation, etc.): `raw()`, as in `gutenberg.raw(fileid)`     
+*All words*, space delimited: `words()`, as in `gutenberg.words(fileid)`       
 *All sentences*: `sents()`, as in `gutenberg.sents(fileid)`
 
 
@@ -266,6 +266,106 @@ corpus_root = '/usr/share/dict'
 wordlists = PlaintextCorpusReader(corpus_root, '.*')
 wordlists.fileids()
 ```
+
+- Basic Corpus Functionality Summary (more documentation available at `help(nltk.corpus.reader)`)  
+
+<table>
+	<tr>
+		<td>Example</td>
+		<td>Description</td>
+	</tr>
+
+	<tr>
+		<td><pre>fileids()</pre></td>
+		<td>the files of the corpus</td>
+	</tr>
+
+	<tr>
+		<td><pre>fileids([categories])</pre></td>
+		<td>the files of the corpus corresponding to these categories</td>
+	</tr>
+
+	<tr>
+		<td><pre>categories()</pre></td>
+		<td>the categories of the corpus</td>
+	</tr>
+
+	<tr>
+		<td><pre>categories([fileids])</pre></td>
+		<td>the categories of the corpus corresponding to these files</td>
+	</tr>
+
+	<tr>
+		<td><pre>raw()</pre></td>
+		<td>the raw content of the corpus</td>
+	</tr>
+
+	<tr>
+		<td><pre>raw(fileids=[f1,f2,f3])</pre></td>
+		<td>the raw content of the specified files</td>
+	</tr>
+
+	<tr>
+		<td><pre>raw(categories=[c1,c2])</pre></td>
+		<td>the raw content of the specified categories</td>
+	</tr>
+		
+	<tr>
+		<td><pre>words()</pre></td>
+		<td>the words of the whole corpus</td>
+	</tr>
+	
+	<tr>
+		<td><pre>words(fileids=[f1,f2,f3])</pre></td>
+		<td>the words of the specified fileids</td>
+	</tr>
+	
+	<tr>
+		<td><pre>fwords(categories=[c1,c2])</pre></td>
+		<td>the words of the specified categories</td>
+	</tr>
+
+	<tr>
+		<td><pre>sents()</pre></td>
+		<td>the sentences of the whole corpus</td>
+	</tr>
+
+	<tr>
+		<td><pre>sents(fileids=[f1,f2,f3])</pre></td>
+		<td>the sentences of the specified fileids</td>
+	</tr>
+
+	<tr>
+		<td><pre>sents(categories=[c1,c2])</pre></td>
+		<td>the sentences of the specified categories</td>
+	</tr>
+
+	<tr>
+		<td><pre>abspath(fileid)</pre></td>
+		<td>the location of the given file on disk</td>
+	</tr>
+
+	<tr>
+		<td><pre>encoding(fileid)</pre></td>
+		<td>the encoding of the file (if known)</td>
+	</tr>
+
+	<tr>
+		<td><pre>open(fileid)</pre></td>
+		<td>open a stream for reading the given corpus file</td>
+	</tr>
+
+	<tr>
+		<td><pre>root()</pre></td>
+		<td>the path to the root of locally installed corpus</td>
+	</tr>
+
+	<tr>
+		<td><pre>readme()</pre></td>
+		<td>the contents of the README file of the corpus</td>
+	</tr>
+</table>
+
 
 __Conditional frequency distributions__ = collection of frequency distributions, each for a different condition (e.g. a category)
 
