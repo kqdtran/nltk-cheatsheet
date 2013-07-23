@@ -1,6 +1,15 @@
 Notes From The NLTK Book
 ========
-Juliana Nazaré - May 2013 - Artificial Intelligence Class
+Juliana Nazaré - May 2013 - Artificial Intelligence Class    
+Modified by Khoa Tran
+
+Install Python and NLTK
+---
+- Install Setuptools: [http://pypi.python.org/pypi/setuptools](http://pypi.python.org/pypi/setuptools)
+- Install Pip: run `sudo easy_install pip`
+- Install Numpy and Matplotlib (optional - for graphical purpose): run `sudo pip install -U numpy`, `sudo apt-get install python-matplotlib`
+- Install PyYAML and NLTK: run `sudo pip install -U pyyaml nltk`
+- Test installation: run `python` then type `import nltk` into the REPL    
 
 Chapter 1
 ---
@@ -8,36 +17,46 @@ __concordance__ = allows us to see the words in context. It can be used to obser
 ```
 text1.concordance("monstrous")
 ```
+
 __similar__ = allows us to see words used in similar contexts
 ```
 text1.similar("monstrous")
 ```
+
 __common contexts__ = examines just the contexts shared by 2+ words
 ```
 text2.concordance(["monstrous", "very"])
 ```
+
 __dispersion plot__ = positional information of a word within text
 
 - each stripe on plot = an occurrence of the word
+
 
 __generate__ = generates random text in the style of the text defined.
 ```
 text3.generate()
 ```
+
 __tokens__ = a sequence of characters representing a word or punctuation that we want to treat as a group.
 
+
 __vocabulary__ = the set of tokens used in a text (duplicates are not counted)
+
 
 __count__ = easily count up individual words in a text
 ```
 text3.count("smote")
 ```
+
 __lexical diversity__ = how diverse a body of text is (different words used)
+
 
 __HOW DO WE IDENTIFY THE WORDS OF A TEXT THAT ARE MOST INFORMATIVE ABOUT  TOPIC?__
 
 - Neither the very infrequent or very frequent words (common English plumbing) help.
 - You want the words in the middle (they occur more than x times and less than y times e.g. 7)
+
 
 __frequency distribution__ = the frequency of each vocabulry item in the text
 
@@ -46,13 +65,86 @@ fdist = FreqDist(text1)
 vocabulary = fdist.keys()
 fdist.plot(50, cumulative)
 ```
+
+- Functions defined for frequency distribution:
+
+<table>
+	<tr>
+		<td>Example</td>
+		<td>Description</td>
+	</tr>
+
+	<tr>
+		<td>`fdist = FreqDist(samples)`</td>
+		<td>create a frequency distribution containing the given samples</td>
+	</tr>
+
+	<tr>
+		<td>`fdist.inc(sample)`</td>
+		<td>increment the count for this sample</td>
+	</tr>
+
+	<tr>
+		<td>`fdist['monstrous']`</td>
+		<td>count of the number of times a given sample occurred</td>
+	</tr>
+
+	<tr>
+		<td>`fdist.freq('monstrous')`</td>
+		<td>frequency of a given sample</td>
+	</tr>
+
+	<tr>
+		<td>`fdist.N()`</td>
+		<td>total number of samples</td>
+	</tr>
+
+	<tr>
+		<td>`fdist.keys()`</td>
+		<td>the samples sorted in order of decreasing frequency</td>
+	</tr>
+
+	<tr>
+		<td>`for sample in fdist:`</td>
+		<td>iterate over the samples, in order of decreasing frequency</td>
+	</tr>
+		
+	<tr>
+		<td>`fdist.max()`</td>
+		<td>sample with the greatest count</td>
+	</tr>
+	
+	<tr>
+		<td>`fdist.tabulate()`</td>
+		<td>tabulate the frequency distribution</td>
+	</tr>
+	
+	<tr>
+		<td>`fdist.plot()`</td>
+		<td>graphical plot of the frequency distribution</td>
+	</tr>
+
+	<tr>
+		<td>`fdist.plot(cumulative=True)`</td>
+		<td>cumulative plot of the frequency distribution</td>
+	</tr>
+
+	<tr>
+		<td>`fdist1 < fdist2`</td>
+		<td>test if samples in fdist1 occur less frequently than in fdist2</td>
+	</tr>
+</table>
+
+
 __hapaxes__ = words that occur only once
+
 
 __collocation__ = a series of words that appears together unusually often (e.g. red wine)
 
+
 __bigrams__ = a list of word pairs
 ```
-biagrams(['more', 'is', 'said', 'than', 'done'])
+bigrams(['more', 'is', 'said', 'than', 'done'])
 ```
 Essentially, collocations are frequent bigrams, except that we want to pay more attention to the cases that involve rare words.
 ```
