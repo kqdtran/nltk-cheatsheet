@@ -75,62 +75,62 @@ fdist.plot(50, cumulative)
 	</tr>
 
 	<tr>
-		<td>`fdist = FreqDist(samples)`</td>
+		<td><pre>fdist = FreqDist(samples)</pre></td>
 		<td>create a frequency distribution containing the given samples</td>
 	</tr>
 
 	<tr>
-		<td>`fdist.inc(sample)`</td>
+		<td><pre>fdist.inc(sample)</pre></td>
 		<td>increment the count for this sample</td>
 	</tr>
 
 	<tr>
-		<td>`fdist['monstrous']`</td>
+		<td><pre>fdist['monstrous']</pre></td>
 		<td>count of the number of times a given sample occurred</td>
 	</tr>
 
 	<tr>
-		<td>`fdist.freq('monstrous')`</td>
+		<td><pre>fdist.freq('monstrous')</pre></td>
 		<td>frequency of a given sample</td>
 	</tr>
 
 	<tr>
-		<td>`fdist.N()`</td>
+		<td><pre>fdist.N()</pre></td>
 		<td>total number of samples</td>
 	</tr>
 
 	<tr>
-		<td>`fdist.keys()`</td>
+		<td><pre>fdist.keys()</pre></td>
 		<td>the samples sorted in order of decreasing frequency</td>
 	</tr>
 
 	<tr>
-		<td>`for sample in fdist:`</td>
+		<td><pre>for sample in fdist:</pre></td>
 		<td>iterate over the samples, in order of decreasing frequency</td>
 	</tr>
 		
 	<tr>
-		<td>`fdist.max()`</td>
+		<td><pre>fdist.max()</pre></td>
 		<td>sample with the greatest count</td>
 	</tr>
 	
 	<tr>
-		<td>`fdist.tabulate()`</td>
+		<td><pre>fdist.tabulate()</pre></td>
 		<td>tabulate the frequency distribution</td>
 	</tr>
 	
 	<tr>
-		<td>`fdist.plot()`</td>
+		<td><pre>fdist.plot()</pre></td>
 		<td>graphical plot of the frequency distribution</td>
 	</tr>
 
 	<tr>
-		<td>`fdist.plot(cumulative=True)`</td>
+		<td><pre>fdist.plot(cumulative=True)</pre></td>
 		<td>cumulative plot of the frequency distribution</td>
 	</tr>
 
 	<tr>
-		<td>`fdist1 < fdist2`</td>
+		<td><pre>fdist1 &lt; fdist2</pre></td>
 		<td>test if samples in fdist1 occur less frequently than in fdist2</td>
 	</tr>
 </table>
