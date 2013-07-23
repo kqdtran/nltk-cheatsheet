@@ -1,4 +1,4 @@
-Notes From The NLTK Book
+Notes From The NLTK Book ([http://nltk.org/book/](http://nltk.org/book/))
 ========
 Juliana Nazaré - May 2013 - Artificial Intelligence Class    
 Modified by Khoa Tran
@@ -66,7 +66,7 @@ vocabulary = fdist.keys()
 fdist.plot(50, cumulative)
 ```
 
-- Functions defined for frequency distribution:
+- __Functions defined for frequency distribution__:
 
 <table>
 	<tr>
@@ -210,17 +210,27 @@ nltk.corpus.gutenberg.fileids()
 emma = nltk.Text(nltk.corpus.gutenberg.wrds('austin-emma.txt'))
 emma.concordance("suprise")
 ```
+
+To extract part of the documents:
+
+*Raw text*, including everything (space, punctuation, etc.): `raw()`, as in `gutenberg.raw(fileid)`
+*All words*, space delimited: `words()`, as in `gutenberg.words(fileid)`
+*All sentences*: `sents()`, as in `gutenberg.sents(fileid)`
+
+
 - Web text
 
 ```
 from nltk.corpus import webtext
 ```
 
+
 - Chatroom conversations 
 
 ```
 from nltk.corpus import nps_chat
 ```
+
 
 - Brown corpus -- first million-word electronic corpus in English
 -- Categorized by genre (news, editorial, etc.)
