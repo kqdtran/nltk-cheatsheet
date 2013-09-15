@@ -1,7 +1,3 @@
-Chapter 4
----
-Python basics -- skipped
-
 Chapter 5: Categorizing and Tagging Words
 ---
 __POS Tagger__ = processes a sequence of words and attaches a part of speech to each word
